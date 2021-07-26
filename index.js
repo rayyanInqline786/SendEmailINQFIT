@@ -1,15 +1,21 @@
+// data will be sending inside body from client side to server side
+// fields are name, email and phone
+// data format { email: 'test@email.com', name: 'Test', phone: '123456789' }
+
+
 let nodemailer = require('nodemailer');
 let express = require('express');
 let app = express()
 let PORT = process.env.PORT || 3002;
 let path = require('path')
 let bodyParser = require('body-parser')
-let cors = require('cors')
+let cors = require('cors');
 
 app.use(bodyParser())
 app.use(cors())
 app.use(express.json());
 
+//send email through this email
 let transporter = nodemailer.createTransport({
     service:"gmail",
     auth:{
@@ -18,6 +24,7 @@ let transporter = nodemailer.createTransport({
     }
 })
 
+//post request for handling data and send the email, receives the data in body
 app.post('/email', (req, res) => {
     //Send an email here but currently dummy email
     console.log(req.body)
