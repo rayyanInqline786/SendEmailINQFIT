@@ -24,6 +24,11 @@ let transporter = nodemailer.createTransport({
     }
 })
 
+//DATA FORMAT
+// {
+//     '{"email":"rayyanali929@gmail.com","name":"Syed Rayyan Ali","phone":"318921838","url":"https://inqlinefit.com/","source":"Inqline Fit"}': ''
+//   }
+  
 //post request for handling data and send the email, receives the data in body
 app.post('/email', (req, res) => {
     //Send an email here but currently dummy email
