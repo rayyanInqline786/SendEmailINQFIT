@@ -44,15 +44,15 @@ app.post('/email', (req, res) => {
     let mailOptions = {
         from:"sales@inqline.com",
         to:'sales@inqline.com, ron@inqline.com',
-        subject:`New Request for Invite Received from ${req.body.email} on Inqline Fit`,
+        subject:`New Request for Invite Received from ${req.body.email} on ${req.body.source}`,
         // text:req.body.text
-        html:`<p>A new request for an invite is received from ${req.body.name} on Inqline Fit.</p>
+        html:`<p>A new request for an invite is received from ${req.body.name} on ${req.body.source}.</p>
         <strong>Details of the sender</strong> <br>
         <p>Name: ${req.body.name}</p> 
         <p>Email Address: ${req.body.email}</p>
         <p>Phone: ${req.body.phone}</p>
         <br>
-        <p>This e-mail was sent from a contact form on Fit (http://inqlinefit.com)</p>
+        <p>This e-mail was sent from a contact form on Fit (${req.body.url})</p>
         `,
         replyTo:req.body.email
     }
