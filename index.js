@@ -11,7 +11,6 @@ let path = require('path')
 let bodyParser = require('body-parser')
 let cors = require('cors');
 
-app.use(bodyParser())
 app.use(cors())
 app.use(express.json());
 
@@ -27,6 +26,17 @@ let transporter = nodemailer.createTransport({
 //DATA FORMAT
 // {
 //     '{"email":"rayyanali929@gmail.com","name":"Syed Rayyan Ali","phone":"318921838","url":"https://inqlinefit.com/","source":"Inqline Fit"}': ''
+//   }
+  
+// {
+//     name: 'Test',
+//     last_name: 'User',
+//     email: 'test@email.com',
+//     phone: '12345678',
+//     company: 'NYC, USA',
+//     description: 'abc',
+//     source: 'AI.Inqline',
+//     url: 'https://ai.inqline.com/'
 //   }
   
 //post request for handling data and send the email, receives the data in body
@@ -59,8 +69,8 @@ app.post('/email', (req, res) => {
             console.log("Success"+info.response)
         }
     })
-
 });
+
 
 app.get('/', function(req, res) {
     res.send("Server Running");
