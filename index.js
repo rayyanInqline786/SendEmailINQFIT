@@ -50,11 +50,13 @@ app.post('/email', (req, res) => {
         to: 'sales@inqline.com, ron@inqline.com',
         subject: `New Request for Invite Received from ${req.body.email} on ${req.body.source}`,
         // text:req.body.text
-        html: `<p>A new request for an invite is received from ${req.body.name} on ${req.body.source}.</p>
+        html: `<p>A new request for an invite is received from ${req.body.name} ${req.body.last_name} on ${req.body.source}.</p>
         <strong>Details of the sender</strong> <br>
-        <p>Name: ${req.body.name}</p> 
+        <p>Name: ${req.body.name} ${req.body.last_name}</p> 
         <p>Email Address: ${req.body.email}</p>
         <p>Phone: ${req.body.phone}</p>
+        <p>Company: ${req.body.company}</p>
+        <p>How did you hear about us ?: ${req.body.description}</p>
         <br>
         <p>This e-mail was sent from a contact form on ${req.body.url}</p>
         `,
