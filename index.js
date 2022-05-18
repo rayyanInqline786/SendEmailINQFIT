@@ -22,7 +22,7 @@ let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
         user: "sales@inqline.com",
-        pass: "salesinqline786"
+        pass: "tfkaoflmafozwbin"
     }
 })
 
@@ -48,6 +48,7 @@ app.post('/email', (req, res) => {
     let mailOptions = {
         from: "sales@inqline.com",
         to: 'sales@inqline.com, ron@inqline.com',
+        // to:"rayyan@inqline.com",
         subject: `New Request for Invite Received from ${req.body.email} on ${req.body.source}`,
         // text:req.body.text
         html: `<p>A new request for an invite is received from ${req.body.name} ${req.body.last_name} on ${req.body.source}.</p>
